@@ -108,4 +108,4 @@ for teacher in my_school.teachers:
 print(my_school.get_school_statistic())  #return середню статистику
 
 print(class1.get_avarage_grade())
-print(class2.get_avarage_grade())    #ередня оцйінка по класам
+print(class2.get_avarage_grade())    #середня оцйінка по класам
