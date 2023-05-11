@@ -18,9 +18,17 @@ class School:
     #1 завдання
     def add_teacher(self, teacher):
         self.teachers.append(teacher)
+    #2 завдання
     def add_class(self, class_obj):
         self.classes.append(class_obj)
-
+    #3 завдання
+    def get_school_statistic(self):
+        num_students = len(self.students)
+        if num_students == 0:
+            avg_grade = 0
+        else:
+            avg_grage = sum(student.grade for student in self.students) / num_students #avg_grage = get_avarage_grade()
+        return f'На {num_students} студентів середня оцінка по школі дорівінбє {avg_grage}'
 
 class Student:
     def __init__(self, name, grade):
@@ -41,13 +49,13 @@ andriiko = Student("Andriy", 50)
 dima = Student("Dmytro", 23)
 gleb = Student("Gleb", 100)
 my_school = School("ItStep", [lisa, masha, andriiko, dima, gleb])
-print("Початкові студенти")
+print("Початкові студенти: ")
 for student in my_school.students:
     print(student)
 
 my_school.admit_student(Student("Bogdan", 3))
 my_school.expel_student(Student("Alisa", 6))
-print("Оновлення")
+print("Оновлення: ")
 for student in my_school.students:
     print(student)
 
@@ -64,3 +72,11 @@ class Class:
         self.students = []
     def add_student(self, student):
         self.students.append(student)
+#третє завдання
+    def get_avarage_grade(self):
+        total_grades = 0
+        for student in self.students:
+            total_grades += student.grade
+        return total_grades / len(self.students)
+
+my_school.get_school_statistic()
