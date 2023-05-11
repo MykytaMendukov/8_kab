@@ -43,6 +43,8 @@ class Student:
     def __str__(self):
         return f'{self.name} - Ранг {self.grade}'
 
+
+
 lisa = Student("Alisa", 6)
 masha = Student("Maria", 2)
 andriiko = Student("Andriy", 50)
@@ -59,6 +61,8 @@ print("Оновлення: ")
 for student in my_school.students:
     print(student)
 
+
+
 #перше завдання
 class Teacher:
     def __init__(self, name, subject, classes):
@@ -72,6 +76,7 @@ class Class:
         self.students = []
     def add_student(self, student):
         self.students.append(student)
+        print(f'{student.name} був доданий до {self.number} класу')
 #третє завдання
     def get_avarage_grade(self):
         total_grades = 0
@@ -79,4 +84,28 @@ class Class:
             total_grades += student.grade
         return total_grades / len(self.students)
 
-my_school.get_school_statistic()
+class1 = Class(1111)
+class2 = Class(1121)  #створюємо клас
+
+my_school.add_class(class1)
+my_school.add_class(class2) #додаємо до школи
+
+class1.add_student(lisa)
+class2.add_student(dima)
+class1.add_student(andriiko)
+class2.add_student(gleb)  #додаємо учнів до класів у школі
+
+teacher_1 = Teacher('Vova', 'PE', class2)
+teacher_2 = Teacher('Anastasia', 'Physique', class1)   #створюємо вчителів
+my_school.add_teacher(teacher_1)
+my_school.add_teacher(teacher_2)  #додаємо вчителів до школи
+
+for class_obj in my_school.classes:
+    print(class_obj.number)  #print номери класів
+for teacher in my_school.teachers:
+    print(teacher.name)   #виводим імена вчителів
+
+print(my_school.get_school_statistic())  #return середню статистику
+
+print(class1.get_avarage_grade())
+print(class2.get_avarage_grade())    #ередня оцйінка по класам
