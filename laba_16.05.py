@@ -23,7 +23,7 @@ except InvalidUsernameError as e:
     print(f"Неправильне ім'я '{e.username}', мін 5 символів")
 except InvalidCharacterError as e1:
     print(f"Неправильне ім'я '{e1.character}', має у собі забаронені символи")
-    #зроби список з юзерів і перевірь
+
 
 #2
 class InvalidPasswordError(Exception):
